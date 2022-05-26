@@ -1,0 +1,4 @@
+Narizoń,1@,4 ,1J,4 ,1@
+Respingao,1{,4 ,1",4 ,1}
+Chato,1[,4 ,1j,4 ,1]
+Lombrizon,1<,4 ,1-,4 ,1>
