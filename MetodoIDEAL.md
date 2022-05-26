@@ -214,10 +214,17 @@ El siguiente ejemplo muestra el proceso de opciones y selección de las mismas p
 * FinFuncion
 ***
 ### **Algoritmo find_face**
-*Parámetros: Ninguho*
-* Funcion find_face()
+*Parámetros:face_name*
+* Funcion True|False <- find_face()
     * Leer face_name
-    * Llamar open_face(face_name)
+    * Dimensionar face_list Llamar lista_de_archivos('folder')
+    * Para i<-0 hasta Llamar longitud(face_list) con paso 1 Hacer:
+        * Si face_name == face_list[i]
+            * Llamar open_face(face_name)
+            * Retornar True
+        * FinSi
+    * FinPara
+    * Retornar False
 * FinFuncion
 ***
 ### **Algoritmo main**
@@ -238,7 +245,10 @@ El siguiente ejemplo muestra el proceso de opciones y selección de las mismas p
             * Llamar list_faces()
         * FinSi
         * Si opcion == 3 Entonces
-            * Llamar find_face()
+            * Leer face_name
+            * Si Llamar find_face(face_name) == False Entonces:
+                * Escriba 'Rostro no encontrado'
+            * FinSi
         * FinSi
         * Si opcion == 4 Entonces
             * exit=True

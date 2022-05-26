@@ -7,11 +7,12 @@ def get_feature(feature:str):
         El nombre del rasgo que desea obtener
     ----------
     Return:
+    ----------
     * :tuple
         Tupla con la siguiente información
-        * :str
+        1)_ :str
             Una cadena de texto con el rasgo decodificado
-        * style: list
+        2) style: list
             Lista con los códigos para crear un rasgo
     * False: bool
         El usuario no escogió ninguna opción 

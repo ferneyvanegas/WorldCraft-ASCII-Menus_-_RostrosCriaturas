@@ -1,0 +1,5 @@
+Pelo denso,1 ,9W
+Ojos biger,1 ,1|,2 ,1O,1 ,1O,2 ,1|
+Narizoń,1@,4 ,1J,4 ,1@
+Gran boca,1 ,1|,2 ,3=,2 ,1|
+Cuello s,2 ,1\,5_,1/

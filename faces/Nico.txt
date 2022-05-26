@@ -1,0 +1,5 @@
+Peso escaso,1 ,9|
+Ojos small,1 ,1|,1-,1(,1.,1 ,1.,1),1-,1|
+Chato,1[,4 ,1j,4 ,1]
+Boca larga,1 ,1|,2 ,3_,2 ,1|
+Cuello s,2 ,1\,5_,1/

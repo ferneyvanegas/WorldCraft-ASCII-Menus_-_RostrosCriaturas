@@ -12,7 +12,9 @@ def create_face():
     face_requeriments = [False, False, False, False, False]
     while finish == False:
         print(
-            'Elige un rasgo\n'
+            '************************\n'
+            'Elige un rasgo (Ej: 1):\n'
+            '************************\n'
             '1. Cabello\n'
             '2. Ojos\n'
             '3. Orejas y Nariz\n'
@@ -22,9 +24,10 @@ def create_face():
         )
         # Esta opción solo está disponible si se han llenado todos los rasgos necesarios para crear el rostro
         if face_complete(face_requeriments) == True:
-            print('7. Guardar rostro\n')
+            print('7. Guardar rostro')
+        print('************************')
         
-        feature = input()
+        feature = input('->')
 
         if feature.isdigit():
             if int(feature) == 1:
@@ -106,9 +109,27 @@ def save_face(face_requeriments):
         l = ''
         for i in line[1]:
             l+=f'{i},'
-        # Se elimina la última coma (,)
-        l = l[:-1]
+        l = l[:-1] # Se elimina la última coma (,)
         file.write(f'{l}\n')
     file.close()
+
+def open_face(face_name:str):
+    '''
+    Parameters:
+    ----------
+    * face_name: str
+        Nombre del archivo para abrir
+    ----------
+    Return:
+    ----------
+    '''
+    file = open(f'faces/{face_name}.txt')
+    print('************')
+    print(f'{face_name.upper()}')
+    print('************')
+    for line in file:
+        # La función decode_line requiere un listado con los códigos
+        print(f.decode_line(line.split(',')))
+    print('************')
     
 
