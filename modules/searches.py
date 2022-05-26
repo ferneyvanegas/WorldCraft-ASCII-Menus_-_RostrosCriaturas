@@ -9,12 +9,12 @@ def list_faces():
     ----------
     '''
     faces_list = os.listdir('faces')
-    print('**********************')
-    print('**Listado de Rostros**')
-    print('**********************')
+    print('\033[93m||||||||||||||||||||||||')
+    print('|* LISTADO DE ROSTROS *|')
+    print('||||||||||||||||||||||||\033[92m')
     for index,face in enumerate(faces_list):
         print(f'{index + 1}. {face}')
-    print('**********************')
+    print('\033[93m||||||||||||||||||||||||\033[0m')
 
 
 def find_face(face_name:str):

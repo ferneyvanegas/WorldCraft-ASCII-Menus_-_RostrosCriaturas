@@ -26,10 +26,10 @@ def get_feature(feature:str):
         styles.append(line.rstrip('\n').split(',')) 
     # Mostrar opciones a usuario
     for index, style in enumerate(styles):
-        print(f'{index + 1}. {style[0]} \t: {decode_line(style)}')
-    print(f'{len(styles) + 1}. Volver\n')
-    print('Escoge una opción:\n->')
-    selection = input()
+        print(f'{index + 1}. \033[93m{style[0]} \t: \033[92m{decode_line(style)}\033[0m')
+    print(f'{len(styles) + 1}. \033[91mVolver|Borrar\n')
+    print('\033[93mEscoge una opción (Ej:1):')
+    selection = input('-> \033[0m')
     if selection.isdigit():
         for index, style in enumerate(styles):  
             if index == int(selection) - 1:
