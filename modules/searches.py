@@ -32,6 +32,7 @@ def find_face(face_name:str):
     faces_list = os.listdir('faces')
     for face in faces_list:
         if f'{face_name}.txt' == face:
-            print(c.open_face(face_name))
+            # Si existe el rostro, lo abre
+            c.open_face(face_name)
             return True
     return False

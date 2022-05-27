@@ -105,7 +105,7 @@ def save_face(face_requeriments):
     ''' 
     face_name = input('Ingresa el nombre del rostro:\n->')
     file = open(f'faces/{face_name}.txt','w')
-    for line in face_requeriments:
+    for index_r, line in enumerate(face_requeriments):
         # Creación y 'purificación' de las líneas
         # =============================================
         l = ''
@@ -118,9 +118,16 @@ def save_face(face_requeriments):
             else:
                 l+=f'{i},'
         l = l[:-1] # Se elimina la última coma (,)
-        # =============================================
-        file.write(f'{l}\n')
+
+        # Si es la última línea, no agrega salto de línea
+        if index_r + 1 == len(face_requeriments):
+            file.write(f'{l}')
+        else:
+            # Si no es la última línea, agrega un salto de línea
+            file.write(f'{l}\n')
+         # =============================================
     file.close()
+    print('\033[92mRostro guardado!\033[0m')
 
 def open_face(face_name:str):
     '''
@@ -132,6 +139,7 @@ def open_face(face_name:str):
     Return:
     ----------
     '''
+    # Apertura del archivo|rostro
     file = open(f'faces/{face_name}.txt')
     print('\033[93m------------')
     # Poner el nombre en mayúsculas
@@ -141,5 +149,5 @@ def open_face(face_name:str):
         # La función decode_line requiere un listado con los códigos
         print(f.decode_line(line.split(',')))
     print('\033[93m------------\033[0m')
-    
-
+    # Cierre del archivo|rostro
+    file.close()
