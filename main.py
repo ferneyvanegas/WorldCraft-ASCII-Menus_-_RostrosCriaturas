@@ -1,7 +1,7 @@
 '''
     Desarrollado por: Ferney Vanegas Hernández
     Misión TIC 2022
-    Versión : 1.0.3
+    Versión : 1.0.4
     Título: Reto 6
 '''
 import modules.create as c
@@ -44,7 +44,7 @@ def main():
             if int(opt) == 2:
                 s.list_faces()
             if int(opt) == 3:
-                face_name = input('Ingresa el nombre del rostro que deseas abrir\n-> ')
+                face_name = input('Ingresa el nombre del rostro que deseas abrir (Mayúsculas importan)\n-> ')
                 if not s.find_face(face_name):
                     print('\033[91mRostro no encontrado...\033[0m\n')
             if int(opt) == 4:

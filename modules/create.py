@@ -103,7 +103,7 @@ def save_face(face_requeriments):
     Return:
     ----------
     ''' 
-    face_name = input('Ingresa el nombre del rostro:\n->')
+    face_name = f.set_creature_name()
     file = open(f'faces/{face_name}.txt','w')
     for index_r, line in enumerate(face_requeriments):
         # Creación y 'purificación' de las líneas

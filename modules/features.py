@@ -1,3 +1,4 @@
+import os
 
 def get_feature(feature:str):
     '''
@@ -36,7 +37,6 @@ def get_feature(feature:str):
                 return  decode_line(style), style
     return False
 
-
 def decode_line(line_code:list):
     '''
     Parameters:
@@ -54,3 +54,32 @@ def decode_line(line_code:list):
         for j in range(int(line_code[i][0])):
             line+=line_code[i][1]
     return line
+
+def set_creature_name():
+    '''
+    Parameters:
+    ----------
+    Return:
+    ----------
+    * face_name: str
+        Cadena de texto con un nombre válido
+    '''
+    correct_name=False # Flag
+    while correct_name == False:
+        exist = False
+        face_name = input(
+        '\033[93mIngresa el nombre del rostro:\n'
+        '(Al menos 1 caracter)\n ->\033[0m'
+        )
+        # El nombre no pueden ser solo espacios y además debe tener al menos 1 caracter
+        if len(face_name.strip()) > 0:
+            faces_list = os.listdir('faces')
+            for face in faces_list:
+                if f'{face_name}.txt' == face:
+                    exist = True
+            if not exist:
+                return face_name
+            else:
+                print('\033[91mError: Ya existe un rostro con este nombre. Prueba otro por favor\033[0m')
+        else:
+            print('\033[91mError: El nombre no pueden ser solo espacios y además debe tener al menos 1 caracter\033[0m')

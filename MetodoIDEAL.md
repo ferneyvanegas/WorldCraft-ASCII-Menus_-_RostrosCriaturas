@@ -1,4 +1,4 @@
-# WorldCraft ASCII: Parte 4
+# WorldCraft ASCII: Rostros
 > **Autor: Ferney Vanegas Hernández**
 
 > **Misión TIC 2022**
@@ -30,6 +30,8 @@ No existe un rostro para ninguna de las criaturas del juego WorldCraft ASCII ni 
     * Línea 5: Cuello
 * Para crear un rostro, debe haberse escogido una opción para cada rasgo dado
 * Para crear un rostro, debe haberse asignado un nombre al mismo, diferente de otro existente
+* El nombre no debe estar vacio (solo espacio(s))
+* El nombre no puede estar siendo usado ya por otro rostro
 
 ## DEFINICIÓN (D)
 ### **Información Suministrada**
@@ -51,6 +53,8 @@ No existe un rostro para ninguna de las criaturas del juego WorldCraft ASCII ni 
 * El sistema debe permitir buscar un rostro por su nombre
 * La siguiente ﬁgura muestra el rostro y su respectiva codiﬁcación:
 ![ej](img/ej.jpg 'Ejemplo')
+* El número hace referencia a una cantidad determinada de veces en la que se debe escribir un caracter
+* El caracter es el que se va a repetir
 ### **Información Requerida**
 * Un patrón adecuado para guardar la codificación del rostro, que se ajuste a lo dado, y que permita ser decodificado con un algoritmo
 * Manejo de archivos en el lenguage Python
@@ -73,9 +77,8 @@ El siguiente ejemplo muestra el proceso de opciones y selección de las mismas p
     * Consultar por nombre
 * Definir repositorios para cada rasgo del rostro a ofrecer
 * Definir repositorio para guardar los rostros creados por el usuario
-* Uso de lista para escribir opciones e ir mostrando construcción del rostro
+* La opción de guardar rostro, se habilitará cuando estén listos todos los rasgos para guardar
 * Al listar, buscar en los repositorios los nombres de los archivos y mostrarlos
-* Al listar, seleccionar rostro por número
 * Al buscar, seleccionar rostro por nombre
 
 ## ALGORITMOS (A)
@@ -171,12 +174,36 @@ El siguiente ejemplo muestra el proceso de opciones y selección de las mismas p
 *Parámetros: face_requeriments*
 * Funcion save_face()
     * Escribir: 'Ingresa el nombre del rostro'
-    * Leer face_name
+    * face_name = Llamar set_creature_name()
     * open('path/"face_name".txt')
     * Para i<-0 hasta 4 con Paso 1 Hacer:
         * Escribir face_requeriments[i][1]
     * FinPara
     * close('path/"face_name".txt')
+* FinFuncion
+***
+### **Algoritmo set_creature_name**
+*Parametros: Ninguno*
+* Funcion face_name <- creature_name()
+    * correct_name = False
+    * Mientras correct_name == False Haga:
+        * existe = False
+        * Leer face_name
+        * Si Llamar longitud(Llamar quitar_espacios(face_name)) > 0 Entonces:
+            * Dimensionar faces_list = Llamar listado_faces('path'):
+            * Para i<-0 hasta Llamar longitud(faces_list) con Paso 1 Haga:
+                * Si face_name.txt == faces_list(i)
+                    * existe = True
+                * FinSi
+            * FinPara
+            * Si existe = False:
+                * Escriba 'El archivo ya existe.'
+            * SiNo:
+                * Retornar face_name
+        * SiNo:
+            * Escriba 'Longitud de nombre incorrecta'
+        * FinSi
+    * FinMientras
 * FinFuncion
 ***
 ### **Algoritmo open_face**
